@@ -14,7 +14,6 @@ export class MovementDirective {
   constructor(private router: Router, private elementRef: ElementRef) { }
 
   @HostListener('window:keyup', ['$event']) onKeyPress(event: Event) {
-    console.log(event);
     if ((event['keyCode'] == 39) && (this.right != '')) {
       this.router.navigate([`${this.right}`]);
     } //rightarrow
@@ -30,7 +29,6 @@ export class MovementDirective {
   }
 
   @HostListener('swipe', ['$event']) onSwipe(event: Event) {
-    console.log(event['direction']);
     if ((event['direction'] == 2) && (this.right != '')) {
       this.router.navigate([`${this.right}`]);
     } //swilpeleft

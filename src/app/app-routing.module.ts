@@ -11,38 +11,67 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    component : HomeComponent,
-    pathMatch: 'full'
+    component: HomeComponent,
+    pathMatch: 'full',
+    data: {
+      animation: 'Home',
+      right: "blog/happy",
+      left: "blog/sad",
+      up: "blog/normal",
+      down: "professional",
+    }
   },
   {
     path: 'professional',
     component: ProfessionalComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data :{
+      animation : 'Down',
+      right: "blog/happy",
+      left: "blog/sad",
+      up: "home",
+      down: "",
+    }
   },
   {
     path: 'blog/happy',
     component: HappyComponent,
     pathMatch: 'full',
-    data:{
-      animation : 'Right',
+    data: {
+      animation: 'Right',
+      right: "",
+      left: "home",
+      up: "",
+      down: "",
     }
   },
   {
     path: 'blog/sad',
     component: SadComponent,
     pathMatch: 'full',
-    data:{
-      animation : 'Left',
+    data: {
+      animation: 'Left',
+      right: "home",
+      left: "",
+      up: "",
+      down: "",
     }
   },
   {
     path: 'blog/normal',
     component: NormalComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data:{
+      animation : 'Up',
+      right: "blog/happy",
+      left: "blog/sad",
+      up: "",
+      down: "home",
+    }
   },
   {
     path: '**',

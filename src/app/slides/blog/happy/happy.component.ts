@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivationStart, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-happy',
@@ -8,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class HappyComponent implements OnInit {
 
   right:string = "";
-  left:string = "home";
+  left:string = "";
   up:string = "";
   down:string = "";
 
-  constructor() { }
+  constructor(private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
+    this.right = this.activatedRoute.snapshot.data['right'];
+    this.left = this.activatedRoute.snapshot.data['left'];
+    this.up = this.activatedRoute.snapshot.data['up'];
+    this.down = this.activatedRoute.snapshot.data['down'];
   }
 
 }

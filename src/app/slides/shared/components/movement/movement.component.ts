@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input,  } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd, Data, RoutesRecognized } from '@angular/router';
+import { filter } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-movement',
@@ -8,15 +10,38 @@ import { Router } from '@angular/router';
 })
 export class MovementComponent implements OnInit {
 
-  @Input() right: string = '';
-  @Input() left: string = '';
-  @Input() up: string = '';
-  @Input() down: string = '';
-  @Input() home:string = 'home';
-  constructor(private router: Router) { }
+  right: string = '';
+  left: string = '';
+  up: string = '';
+  down: string = '';
+  home: string = 'home';
+  data:Data;
 
+  constructor(private router:Router,private activatedRoute:ActivatedRoute){}
+  
   ngOnInit() {
-  }
+    // this.router.events.pipe(
+    //     filter(event => event instanceof NavigationEnd)
+    // ).subscribe(() => {
+    //     this.data = JSON.parse(JSON.stringify(''+this.activatedRoute['children'][0]['data']['_value']));
+    //     console.log(this.data);
+    //     console.log(this.data.animation);    
+    // });
+    // this.activatedRoute.data.subscribe(
+    //   (data:Data) => {
+    //     console.log(data);
+    //   }
+    // )
+    this.router.events.subscribe((data) => {
+      if (data instanceof RoutesRecognized) {
+       this.data = data.state.root.firstChild.data;
+       this.right = data.state.root.firstChild.data['right'];
+       this.left = data.state.root.firstChild.data['left'];
+       this.up = data.state.root.firstChild.data['up'];
+       this.down = data.state.root.firstChild.data['down'];
+      }
+    });
+}
 
   onNavigate(direction: string) {
     if (direction === this.right)
@@ -27,7 +52,7 @@ export class MovementComponent implements OnInit {
       this.router.navigate([`${this.up}`]);
     else if (direction === this.down)
       this.router.navigate([`${this.down}`]);
-    else if(direction == this.home)
+    else if (direction == this.home)
       this.router.navigate([`${this.home}`]);
   }
 }

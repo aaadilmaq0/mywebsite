@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sad',
@@ -12,9 +13,13 @@ export class SadComponent implements OnInit {
   up:string = "";
   down:string = "";
 
-  constructor() { }
+  constructor(private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
+    this.right = this.activatedRoute.snapshot.data['right'];
+    this.left = this.activatedRoute.snapshot.data['left'];
+    this.up = this.activatedRoute.snapshot.data['up'];
+    this.down = this.activatedRoute.snapshot.data['down'];
   }
 
 }

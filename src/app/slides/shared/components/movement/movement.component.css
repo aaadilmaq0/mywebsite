@@ -1,0 +1,31 @@
+.grid-container {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: transparent; 
+    width: 210px;
+    height: 210px;
+}
+  
+.grid-item {
+    position: relative;
+    background-color: transparent;
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    text-align: center;
+    height: 70px;
+    width: 70px;
+}
+
+.material-icons{
+    font-size: 70px;
+}
+
+#home{
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

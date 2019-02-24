@@ -43,7 +43,7 @@ export const slideInAnimation =
                 ], { optional: true }),
             ])
         ]),
-        transition('* => Down', [
+        transition('* => Down, Up => Home', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),
@@ -61,7 +61,7 @@ export const slideInAnimation =
             ]),
 
         ]),
-        transition('* => Up', [
+        transition('* => Up, Down => Up', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),

@@ -9,7 +9,7 @@ import {
 } from '@angular/animations';
 export const slideInAnimation =
     trigger('routeAnimations', [
-        transition('* => Right , Left => Home', [
+        transition('* => Right , Left => Home, Left => Up, Left => Down', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),
@@ -26,7 +26,7 @@ export const slideInAnimation =
                 ], { optional: true }),
             ])
         ]),
-        transition('* => Left, Right => Home', [
+        transition('* => Left, Right => Home, Right => Up, Right=>Down', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),
@@ -43,7 +43,7 @@ export const slideInAnimation =
                 ], { optional: true }),
             ])
         ]),
-        transition('* => Down, Up => Home', [
+        transition('Home => Down, Up => Home', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),
@@ -61,7 +61,7 @@ export const slideInAnimation =
             ]),
 
         ]),
-        transition('* => Up, Down => Up', [
+        transition('Home => Up, Down => Home', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),

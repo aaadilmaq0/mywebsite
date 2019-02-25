@@ -1,5 +1,5 @@
-import { Component, OnInit, Input,  } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd, Data, RoutesRecognized } from '@angular/router';
+import { Component, OnInit, Input, } from '@angular/core';
+import { Router, NavigationEnd, RoutesRecognized, ActivatedRouteSnapshot } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 
@@ -15,44 +15,61 @@ export class MovementComponent implements OnInit {
   up: string = '';
   down: string = '';
   home: string = 'home';
-  data:Data;
+  qright: string = '';
+  qleft: string = '';
+  qup: string = '';
+  qdown: string = '';
+  currentPath: string = '';
+  activatedRouteSnapshot: ActivatedRouteSnapshot;
+  constructor(private router: Router) { }
 
-  constructor(private router:Router,private activatedRoute:ActivatedRoute){}
-  
   ngOnInit() {
-    // this.router.events.pipe(
-    //     filter(event => event instanceof NavigationEnd)
-    // ).subscribe(() => {
-    //     this.data = JSON.parse(JSON.stringify(''+this.activatedRoute['children'][0]['data']['_value']));
-    //     console.log(this.data);
-    //     console.log(this.data.animation);    
-    // });
-    // this.activatedRoute.data.subscribe(
-    //   (data:Data) => {
-    //     console.log(data);
-    //   }
-    // )
     this.router.events.subscribe((data) => {
       if (data instanceof RoutesRecognized) {
-       this.data = data.state.root.firstChild.data;
-       this.right = data.state.root.firstChild.data['right'];
-       this.left = data.state.root.firstChild.data['left'];
-       this.up = data.state.root.firstChild.data['up'];
-       this.down = data.state.root.firstChild.data['down'];
+        this.activatedRouteSnapshot = data.state.root.firstChild;
+
+        this.right = data.state.root.firstChild.data['right'];
+        this.left = data.state.root.firstChild.data['left'];
+        this.up = data.state.root.firstChild.data['up'];
+        this.down = data.state.root.firstChild.data['down'];
+
+        this.qright = this.activatedRouteSnapshot.params['qright'];
+        this.qdown = this.activatedRouteSnapshot.params['qdown'];
+        this.qup = this.activatedRouteSnapshot.params['qup'];
+        this.qleft = this.activatedRouteSnapshot.params['qleft'];
+
       }
     });
-}
+  }
 
   onNavigate(direction: string) {
-    if (direction === this.right)
-      this.router.navigate([`${this.right}`]);
-    else if (direction === this.left)
-      this.router.navigate([`${this.left}`]);
-    else if (direction === this.up)
-      this.router.navigate([`${this.up}`]);
-    else if (direction === this.down)
-      this.router.navigate([`${this.down}`]);
-    else if (direction == this.home)
+    this.currentPath = this.router.url.toString().split(';')[0];
+    if (direction === this.right){
+      if (!this.qright)
+        this.router.navigate([`${this.right}`, { qleft: this.currentPath }]);
+      else
+        this.router.navigate([`${this.qright}`, { qleft: this.currentPath }]);
+    }
+    else if (direction === this.left){
+      if (!this.qleft)
+        this.router.navigate([`${this.left}`, { qright: this.currentPath }]);
+      else
+        this.router.navigate([`${this.qleft}`, { qright: this.currentPath }]);
+    }
+    else if (direction === this.up){
+      if(!this.qup)
+        this.router.navigate([`${this.up}`, { qdown: this.currentPath }]);
+      else
+        this.router.navigate([`${this.qup}`, { qdown: this.currentPath }]);
+    }
+    else if (direction === this.down){
+      if (!this.qdown)
+        this.router.navigate([`${this.down}`, { qup: this.currentPath }]);
+      else
+        this.router.navigate([`${this.qdown}`, { qup: this.currentPath }]);
+    }
+    else if (direction == this.home){
       this.router.navigate([`${this.home}`]);
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PathService } from '../services/path.service';
 
 @Directive({
   selector: '[appMovement]'
@@ -17,69 +18,66 @@ export class MovementDirective implements OnInit {
   qdown: string = '';
   currentPath: string = '';
 
-  constructor(private router: Router, private elementRef: ElementRef, private activatedRoute: ActivatedRoute) {
-    
+  constructor(private router: Router, private elementRef: ElementRef, private activatedRoute: ActivatedRoute, private pathService: PathService) {
+
   }
 
   ngOnInit() {
-    this.qright = this.activatedRoute.snapshot.params['qright'];
-    this.qdown = this.activatedRoute.snapshot.params['qdown'];
-    this.qup = this.activatedRoute.snapshot.params['qup'];
-    this.qleft = this.activatedRoute.snapshot.params['qleft'];
+    this.qright = this.activatedRoute.snapshot.data['lastSlide']['qright'];
+    this.qdown = this.activatedRoute.snapshot.data['lastSlide']['qdown'];
+    this.qup = this.activatedRoute.snapshot.data['lastSlide']['qup'];
+    this.qleft = this.activatedRoute.snapshot.data['lastSlide']['qleft'];
   }
 
   @HostListener('window:keyup', ['$event']) onKeyPress(event: Event) {
     this.currentPath = this.router.url.toString().split(';')[0];
     if ((event['keyCode'] == 39) && (this.right != '')) {
-      if (!this.qright)
-        this.router.navigate([`${this.right}`, { qleft: this.currentPath }]);
-      else
-        this.router.navigate([`${this.qright}`, { qleft: this.currentPath }]);
+      this.movetoRight();
     } //rightarrow
     else if ((event['keyCode'] == 38) && (this.up != '')) {
-      if(!this.qup)
-        this.router.navigate([`${this.up}`, { qdown: this.currentPath }]);
-      else
-        this.router.navigate([`${this.qup}`, { qdown: this.currentPath }]);
+      this.moveToUp();
     }//uparrow
     else if ((event['keyCode'] == 37) && (this.left != '')) {
-      if (!this.qleft)
-        this.router.navigate([`${this.left}`, { qright: this.currentPath }]);
-      else
-        this.router.navigate([`${this.qleft}`, { qright: this.currentPath }]);
+      this.moveToLeft();
     }//leftarrow
     else if ((event['keyCode'] == 40) && (this.down != '')) {
-      if (!this.qdown)
-        this.router.navigate([`${this.down}`, { qup: this.currentPath }]);
-      else
-        this.router.navigate([`${this.qdown}`, { qup: this.currentPath }]);
+      this.moveToDown();
     }//downarrow
   }
 
   @HostListener('swipe', ['$event']) onSwipe(event: Event) {
+    this.currentPath = this.router.url.toString().split(';')[0];
     if ((event['direction'] == 2) && (this.right != '')) {
-      if (!this.qright)
-        this.router.navigate([`${this.right}`, { qleft: this.currentPath }]);
-      else
-        this.router.navigate([`${this.qright}`, { qleft: this.currentPath }]);
+      this.moveToLeft();
     } //swilpeleft
     else if ((event['direction'] == 16) && (this.up != '')) {
-      if(!this.qup)
-        this.router.navigate([`${this.up}`, { qdown: this.currentPath }]);
-      else
-        this.router.navigate([`${this.qup}`, { qdown: this.currentPath }]);
+      this.moveToDown();
     }//swipedown
     else if ((event['direction'] == 4) && (this.left != '')) {
-      if (!this.qleft)
-        this.router.navigate([`${this.left}`, { qright: this.currentPath }]);
-      else
-        this.router.navigate([`${this.qleft}`, { qright: this.currentPath }]);
+      this.movetoRight();
     }//swiperight
     else if ((event['direction'] == 8) && (this.down != '')) {
-      if (!this.qdown)
-        this.router.navigate([`${this.down}`, { qup: this.currentPath }]);
-      else
-        this.router.navigate([`${this.qdown}`, { qup: this.currentPath }]);
+      this.moveToUp();
     }//swipeup
+  }
+
+  moveToLeft() {
+    this.pathService.setLastSlide(undefined, this.currentPath, undefined, undefined);
+    (this.qleft) ? this.router.navigate([`${this.qleft}`]) : this.router.navigate([`${this.left}`]);
+  }
+
+  movetoRight() {
+    this.pathService.setLastSlide(this.currentPath, undefined, undefined, undefined);
+    (this.qright) ? this.router.navigate([`${this.qright}`]) : this.router.navigate([`${this.right}`]);
+  }
+
+  moveToUp() {
+    this.pathService.setLastSlide(undefined, undefined, undefined, this.currentPath);
+    (this.qup) ? this.router.navigate([`${this.qup}`]) : this.router.navigate([`${this.up}`]);
+  }
+
+  moveToDown() {
+    this.pathService.setLastSlide(undefined, undefined, this.currentPath, undefined);
+    (this.qdown) ? this.router.navigate([`${this.qdown}`]) : this.router.navigate([`${this.down}`]);
   }
 }

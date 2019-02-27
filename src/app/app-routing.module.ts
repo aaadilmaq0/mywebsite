@@ -6,6 +6,7 @@ import { HappyComponent } from './slides/blog/happy/happy.component';
 import { SadComponent } from './slides/blog/sad/sad.component';
 import { NormalComponent } from './slides/blog/normal/normal.component';
 import { PathNotFoundComponent } from './path-not-found/path-not-found.component';
+import { PathResolverService } from './slides/shared/services/path-resolver.service';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
       left: "blog/sad",
       up: "blog/normal",
       down: "professional",
-    }
+    },
+    resolve: {lastSlide : PathResolverService} 
   },
   {
     path: 'professional',
@@ -35,7 +37,8 @@ const routes: Routes = [
       left: "blog/sad",
       up: "home",
       down: "",
-    }
+    },
+    resolve: {lastSlide : PathResolverService}
   },
   {
     path: 'blog/happy',
@@ -47,7 +50,8 @@ const routes: Routes = [
       left: "home",
       up: "",
       down: "",
-    }
+    },
+    resolve: {lastSlide : PathResolverService} 
   },
   {
     path: 'blog/sad',
@@ -59,7 +63,8 @@ const routes: Routes = [
       left: "",
       up: "",
       down: "",
-    }
+    },
+    resolve: {lastSlide : PathResolverService} 
   },
   {
     path: 'blog/normal',
@@ -71,7 +76,8 @@ const routes: Routes = [
       left: "blog/sad",
       up: "",
       down: "home",
-    }
+    },
+    resolve: {lastSlide : PathResolverService} 
   },
   {
     path: '**',

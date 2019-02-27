@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { MovementComponent } from './slides/shared/components/movement/movement.component';
+import { PathResolverService } from './slides/shared/services/path-resolver.service';
+import { PathService } from './slides/shared/services/path.service';
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
     'swipe': { direction: Hammer.DIRECTION_ALL }
@@ -47,7 +49,9 @@ export class HammerConfig extends HammerGestureConfig {
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: HammerConfig
-    }
+    },
+    PathService,
+    PathResolverService
   ],
   bootstrap: [AppComponent]
 })

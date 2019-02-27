@@ -1,0 +1,7 @@
+div{
+    max-height:100%;
+    overflow:hidden;
+    background-image: url('https://media.giphy.com/media/5xtDarqCp0eomZaFJW8/giphy.gif');
+    background-size: cover;
+    background-position: center;
+}

@@ -71,5 +71,5 @@ export class MovementComponent implements OnInit {
     else if (direction == this.home){
       this.router.navigate([`${this.home}`]);
     }
-  }
+  }œ
 }

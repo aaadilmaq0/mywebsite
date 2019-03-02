@@ -20,6 +20,7 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 import { MovementComponent } from './slides/shared/components/movement/movement.component';
 import { PathResolverService } from './slides/shared/services/path-resolver.service';
 import { PathService } from './slides/shared/services/path.service';
+import { ParticlesComponent } from './particles/particles.component';
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
     'swipe': { direction: Hammer.DIRECTION_ALL }
@@ -38,6 +39,7 @@ export class HammerConfig extends HammerGestureConfig {
     PathNotFoundComponent,
     MovementDirective,
     MovementComponent,
+    ParticlesComponent
   ],
   imports: [
     BrowserModule,

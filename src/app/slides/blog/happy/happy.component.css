@@ -1,7 +1,9 @@
 div{
     max-height:100%;
     overflow:hidden;
-    background-image: url('https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif');
+    background-color: blue;
     background-size: cover;
     background-position: center;
 }
+
+/* url('https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif') */

@@ -48,16 +48,16 @@ export class MovementDirective implements OnInit {
   @HostListener('swipe', ['$event']) onSwipe(event: Event) {
     this.currentPath = this.router.url.toString().split(';')[0];
     if ((event['direction'] == 2) && (this.right != '')) {
-      this.moveToLeft();
+      this.movetoRight();
     } //swilpeleft
     else if ((event['direction'] == 16) && (this.up != '')) {
-      this.moveToDown();
+      this.moveToUp();
     }//swipedown
     else if ((event['direction'] == 4) && (this.left != '')) {
-      this.movetoRight();
+      this.moveToLeft();
     }//swiperight
     else if ((event['direction'] == 8) && (this.down != '')) {
-      this.moveToUp();
+      this.moveToDown();
     }//swipeup
   }
 

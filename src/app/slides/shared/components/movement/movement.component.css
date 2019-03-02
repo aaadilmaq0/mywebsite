@@ -1,33 +1,33 @@
 .grid-container {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: transparent; 
-    width: 210px;
-    height: 210px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: transparent;
+  width: 120px;
+  height: 120px;
 }
-  
+
 .grid-item {
-    position: relative fixed;
-    background-color: transparent;
-    /* border: 1px solid rgba(0, 0, 0, 0.8); */
-    text-align: center;
-    height: 70px;
-    width: 70px;
+  position: relative fixed;
+  background-color: transparent;
+  text-align: center;
+  height: 40px;
+    width: 40px;
 }
 
-.material-icons{
-    position: relative fixed;
-    font-size: 70px;
-    cursor: pointer;
+.material-icons {
+  position: relative fixed;
+  cursor: pointer;
+  color: whitesmoke;
+  font-size: 40px;
 }
 
-#home{
-    font-size: 50px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#home {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
 }

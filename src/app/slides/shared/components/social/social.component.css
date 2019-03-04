@@ -1,0 +1,25 @@
+.container {
+  max-height: 120px;
+  max-width: calc(100vw - 120px);
+  position: absolute;
+  left: 0px;
+  bottom: 20px;
+}
+
+.img {
+  height: 40px;
+  width: 40px;
+  float: left;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.images{
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+}
+/* .row::after {
+  content: "";
+  clear: both;
+  display: table;
+} */

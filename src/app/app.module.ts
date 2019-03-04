@@ -14,6 +14,7 @@ import { MovementDirective } from './slides/shared/directives/movement.directive
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -23,6 +24,8 @@ import { PathService } from './slides/shared/services/path.service';
 import { ParticlesComponent } from './particles/particles.component';
 import { SocialComponent } from './slides/shared/components/social/social.component';
 import { BlogTemplateComponent } from './slides/blog/shared/blog-template/blog-template.component';
+import { BlogListComponent } from './slides/blog/shared/blog-list/blog-list.component';
+import { BlogServiceService } from './slides/blog/shared/blog-service.service';
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
     'swipe': { direction: Hammer.DIRECTION_ALL }
@@ -43,13 +46,15 @@ export class HammerConfig extends HammerGestureConfig {
     MovementComponent,
     ParticlesComponent,
     SocialComponent,
-    BlogTemplateComponent
+    BlogTemplateComponent,
+    BlogListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [
     {
@@ -57,7 +62,8 @@ export class HammerConfig extends HammerGestureConfig {
       useClass: HammerConfig
     },
     PathService,
-    PathResolverService
+    PathResolverService,
+    BlogServiceService
   ],
   bootstrap: [AppComponent]
 })

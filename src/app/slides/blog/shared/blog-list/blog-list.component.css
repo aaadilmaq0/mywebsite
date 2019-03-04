@@ -1,0 +1,15 @@
+.wrapper {
+  position: relative;
+  height: calc(100vh - 120px);
+  width: 95%;
+  margin: auto;
+  background-color: black;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 1;
+  margin-top: 8px;
+}
+
+.row > div{
+    margin-bottom: 8px;
+}

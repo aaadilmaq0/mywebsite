@@ -1,7 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const app = express();
+
+const mongoose = require('mongoose');
+
+const options = { useNewUrlParser: true };
+const Blog = require('./models/blog')
+
+mongoose.connect("mongodb://adil_maqusood:0xxnD89VEKwtLOG2@mywebsite-shard-00-00-kbpga.mongodb.net:27017,mywebsite-shard-00-01-kbpga.mongodb.net:27017,mywebsite-shard-00-02-kbpga.mongodb.net:27017/test?ssl=true&replicaSet=mywebsite-shard-0&authSource=admin&retryWrites=true",options)
+    .then(()=>{
+        console.log('Connected');    
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
 
 app.unsubscribe(bodyParser.json());
 
@@ -16,17 +28,21 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/getBlogs", (req,res,next)=>{
+    Blog.find()
+    .then( documents =>{
+        console.log(documents);
+    });
+});
 app.use("/blogs",(req, res, next) => {
-    const posts = [
-        {
-            id: 1,
-            title: "First server side post",
-            content: "This is coming from the server"
-        }
-    ];
+    const blog = new Blog({
+        title: 'Sabika',
+        content: 'First Love'
+    });
+    blog.save();
     res.status(200).json({
         message: 'Posts fetched successfully',
-        posts :posts,
+        posts :blog,
     });
 });
 

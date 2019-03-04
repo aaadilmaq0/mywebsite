@@ -7,11 +7,12 @@ import { SadComponent } from './slides/blog/sad/sad.component';
 import { NormalComponent } from './slides/blog/normal/normal.component';
 import { PathNotFoundComponent } from './path-not-found/path-not-found.component';
 import { PathResolverService } from './slides/shared/services/path-resolver.service';
+import { BlogTemplateComponent } from './slides/blog/shared/blog-template/blog-template.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'blog/blogtemplate',
     pathMatch: 'full',
   },
   {
@@ -78,6 +79,11 @@ const routes: Routes = [
       down: "home",
     },
     resolve: {lastSlide : PathResolverService} 
+  },
+  {
+    path: 'blog/blogtemplate',
+    component: BlogTemplateComponent,
+    pathMatch: 'full',
   },
   {
     path: '**',

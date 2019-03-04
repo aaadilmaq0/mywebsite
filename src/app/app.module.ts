@@ -22,6 +22,7 @@ import { PathResolverService } from './slides/shared/services/path-resolver.serv
 import { PathService } from './slides/shared/services/path.service';
 import { ParticlesComponent } from './particles/particles.component';
 import { SocialComponent } from './slides/shared/components/social/social.component';
+import { BlogTemplateComponent } from './slides/blog/shared/blog-template/blog-template.component';
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
     'swipe': { direction: Hammer.DIRECTION_ALL }
@@ -41,7 +42,8 @@ export class HammerConfig extends HammerGestureConfig {
     MovementDirective,
     MovementComponent,
     ParticlesComponent,
-    SocialComponent
+    SocialComponent,
+    BlogTemplateComponent
   ],
   imports: [
     BrowserModule,

@@ -4,9 +4,57 @@
   left="{{ left }}"
   up="{{ up }}"
   down="{{ down }}"
-></div>
-
-<div class="container content" style="height: 100vh; width: 100vw;">
-  <p>Hey Yo</p>
-  <app-particles></app-particles>
+  class="wrapper"
+>
+  <div class="container-fluid">
+    <div class="header row">
+      <div class="link col-xs-3">
+        <a
+          [ngStyle]="{ color: selectedLink == 'personal' ? 'white' : 'red' }"
+          (click)="selectedLink = 'personal'"
+          >PERSONAL</a
+        >
+      </div>
+      <div class="link col-xs-3">
+        <a
+          [ngStyle]="{ color: selectedLink == 'education' ? 'white' : 'red' }"
+          (click)="selectedLink = 'education'"
+          >EDUCATION</a
+        >
+      </div>
+      <div class="link col-xs-3">
+        <a
+          [ngStyle]="{ color: selectedLink == 'experience' ? 'white' : 'red' }"
+          (click)="selectedLink = 'experience'"
+          >EXPERIENCE</a
+        >
+      </div>
+      <div class="link col-xs-3">
+        <a
+          [ngStyle]="{ color: selectedLink == 'skills' ? 'white' : 'red' }"
+          (click)="selectedLink = 'skills'"
+          >SKILLS</a
+        >
+      </div>
+    </div>
+    <div class="content row">
+      <app-chart
+        *ngIf="selectedLink == 'personal'"
+        [data]="personalData"
+      ></app-chart>
+      <app-chart
+        *ngIf="selectedLink == 'education'"
+        [data]="educationData"
+      ></app-chart>
+      <app-chart
+        *ngIf="selectedLink == 'experience'"
+        [data]="experienceData"
+      ></app-chart>
+      <app-chart
+        *ngIf="selectedLink == 'skills'"
+        [data]="skillsData"
+      ></app-chart>
+    </div>
+  </div>
 </div>
+<a class="resume" href="https://drive.google.com/open?id=1Oi3QFwogyO-EUj5vlO8XJW9Z-YVzyMS4">R E S U M E</a>

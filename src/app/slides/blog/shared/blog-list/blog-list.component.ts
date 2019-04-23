@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Blog } from '../blog.model';
 import { BlogServiceService } from '../blog-service.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-blog-list',
   templateUrl: './blog-list.component.html',
   styleUrls: ['./blog-list.component.css']
 })
-export class BlogListComponent implements OnInit {
+export class BlogListComponent implements OnInit, OnDestroy {
 
   right:string = "";
   left:string = "";
@@ -16,8 +17,13 @@ export class BlogListComponent implements OnInit {
   down:string = "";
 
   blogs:Blog[] = [];
-  
-  constructor( private activatedRoute: ActivatedRoute, private blogService:BlogServiceService) { }
+  subscription:Subscription;
+  mood: string;
+  selectedBlog:Blog;
+  selectedBlogIndex = -1;
+  constructor(private activatedRoute: ActivatedRoute, private blogService:BlogServiceService) {
+    
+  }
 
   ngOnInit() {
     this.right = this.activatedRoute.snapshot.data['right'];
@@ -25,7 +31,63 @@ export class BlogListComponent implements OnInit {
     this.up = this.activatedRoute.snapshot.data['up'];
     this.down = this.activatedRoute.snapshot.data['down'];
 
-    this.blogs = this.blogService.getBlogs('sad');
+    this.blogs =this.blogService.getBlogs();
+    this.subscription = this.blogService.getBlogsUpdatedListener().subscribe(
+      (blogs:Blog[]) => {
+        this.blogs = blogs;
+      }
+    );
+    this.blogs.push({
+      _id : '1',
+      title : 'asdadsasdaasdadssdas',
+      about : 'asadasdaasdasd',
+      name : 'asdasdasdasdasdsa',
+      dateTime : new Date(),
+      content : 'asdjisdjiajdsiasjdiasjdi ajsdi jaisd jiasjd iasjd iajdi jaid jaisd jiajs asd iasdj iasdj iajsdi asdj aisjdi ajids jaijsad ijadsijaisj iasdji ajs iji jasid jasdaj asidjaisdj isajd isajd ijqaid jsi jiasdj asdij sijdj adsjias ijd',
+
+    });
+    this.blogs.push({
+      _id : '1',
+      title : 'asdadsasdaasdadssdas',
+      about : 'asadasdaasdasd',
+      name : 'asdasdasdasdasdsa',
+      dateTime : new Date(),
+      content : 'asdjisdjiajdsiasjdiasjdi ajsdi jaisd jiasjd iasjd iajdi jaid jaisd jiajs asd iasdj iasdj iajsdi asdj aisjdi ajids jaijsad ijadsijaisj iasdji ajs iji jasid jasdaj asidjaisdj isajd isajd ijqaid jsi jiasdj asdij sijdj adsjias ijd',
+
+    });
+    this.blogs.push({
+      _id : '1',
+      title : 'asdadsasdaasdadssdas',
+      about : 'asadasdaasdasd',
+      name : 'asdasdasdasdasdsa',
+      dateTime : new Date(),
+      content : 'asdjisdjiajdsiasjdiasjdi ajsdi jaisd jiasjd iasjd iajdi jaid jaisd jiajs asd iasdj iasdj iajsdi asdj aisjdi ajids jaijsad ijadsijaisj iasdji ajs iji jasid jasdaj asidjaisdj isajd isajd ijqaid jsi jiasdj asdij sijdj adsjias ijd',
+
+    });
+    this.blogs.push({
+      _id : '1',
+      title : 'asdadsasdaasdadssdas',
+      about : 'asadasdaasdasd',
+      name : 'asdasdasdasdasdsa',
+      dateTime : new Date(),
+      content : 'asdjisdjiajdsiasjdiasjdi ajsdi jaisd jiasjd iasjd iajdi jaid jaisd jiajs asd iasdj iasdj iajsdi asdj aisjdi ajids jaijsad ijadsijaisj iasdji ajs iji jasid jasdaj asidjaisdj isajd isajd ijqaid jsi jiasdj asdij sijdj adsjias ijd',
+
+    });
+    var check = setInterval(()=>{
+      if(this.blogs[0]){
+        this.loadSelectedBlog(0);
+        clearInterval(check);
+      }
+    },100);
+  }
+
+  loadSelectedBlog(i:number){
+    this.selectedBlogIndex = i;
+    this.selectedBlog = this.blogs[i];
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 
 }

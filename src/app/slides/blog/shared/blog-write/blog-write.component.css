@@ -1,0 +1,79 @@
+.wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../../../../assets/images/bgs/background-balance-business-583846.jpg");
+  background-size: cover;
+  background-position: right ;
+}
+.form-wrapper {
+  background: none;
+  position: relative;
+  height: calc(100% - 90px);
+  width: 100%;
+  overflow-y: scroll;
+}
+.form-user-name {
+  position: absolute;
+  font-family: "ZCOOL QingKe HuangYou", cursive;
+  font-size: 35px;
+  color: whitesmoke;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  overflow-x: hidden;
+}
+mat-card {
+  
+  position: absolute;
+  opacity: 0.9;
+  top: 11%;
+  /* transform: translateY(-50%); */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+.example-container {
+  width: 100%;
+}
+
+.example-container > * {
+  font-family: "ZCOOL QingKe HuangYou", cursive;
+  font-size: 18px;
+}
+
+.example-container > mat-slide-toggle {
+  width: 100%;
+}
+
+.example-container > mat-form-field {
+  width: 100%;
+}
+
+.example-container > button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+em {
+  font-family: "ZCOOL QingKe HuangYou", cursive;
+  font-style: normal;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  mat-card {
+    width: 90%;
+  }
+  .form-wrapper{
+    height: calc(100% - 120px);
+  }
+  .form-user-name{
+    top: .5%;
+    font-size: 35px;
+  }
+}
+
+.makeItalic{
+  font-style: italic;
+}

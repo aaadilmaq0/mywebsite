@@ -1,7 +1,72 @@
-div{
-    max-height:100%;
-    overflow:hidden;
-    background-image: url('https://media.giphy.com/media/l2QEeR4D4tPzWvc1a/giphy.gif');
+.wrapper{
+    height: 100vh;
+    width: 100vw;
+    overflow-x:hidden;
+    overflow-y: hidden;
+    /* background-image: url('../../../assets/images/bgs/professional.jpg'); */
+    background-color: black;
     background-size: cover;
     background-position: center;
+}
+.header{
+    line-height: 40px;
+    z-index: 3;
+    width: 100vw;
+    border: 2px dashed pink;
+}
+.content{
+    background-color: black;
+    width: 100vw;
+    height: calc(100vh - 40px);
+}
+.link{
+    cursor: pointer;
+    height: 40px;
+    text-align: center;
+    margin-top: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@media (min-width:320px)  {
+    .link{
+        font-size: 15px;
+    }
+}
+@media (min-width:481px)  {
+    .link{
+        font-size: 17px;
+    }
+}
+@media (min-width:641px)  {
+    .link{
+        font-size: 20px;
+    }
+}
+@media (min-width:961px)  {
+    .link{
+        font-size: 25px;
+    }
+}
+@media (min-width:1025px) {
+    .link{
+        font-size: 25px;
+    }
+}
+@media (min-width:1281px) {
+    .link{
+        font-size: 25px;
+    }
+}
+.resume{
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    z-index: 2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: wheat;
+}
+
+.resume:hover{
+    color : purple;
 }

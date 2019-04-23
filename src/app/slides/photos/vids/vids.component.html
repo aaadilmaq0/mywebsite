@@ -1,0 +1,23 @@
+<div class="wrapper" appMovement down="{{ down }}">
+    <div class="bar">
+        <div class="logo">
+          <img class="img img-responsive" src="../../../../assets/images/yt.png" alt="">
+          <em> V I D E O S </em>
+        </div>
+    </div>
+    <div class="content container-fluid">
+      <div class="row">
+        <div class="video col-xs-12 col-md-9">
+          <div class="video-container">
+            <iframe *ngIf="selected > -1" [src]="sanitizer.bypassSecurityTrustResourceUrl(vids[selected].url)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="videolist col-xs-12 col-md-3">
+          <div class="item" *ngFor="let vid of vids; let i = index" (click)="selected = i" [ngStyle]="{'border': (selected==i) ? '2px solid wheat' : 'none'}">
+            <img class="img" [src]="vid.thumbnail" alt="">
+            <p>{{vid.title}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

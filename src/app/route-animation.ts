@@ -9,7 +9,7 @@ import {
 } from '@angular/animations';
 export const slideInAnimation =
     trigger('routeAnimations', [
-        transition('Home => Right , Left => Home, Left => Up, Left => Down, LeftDown=>Home, LeftDown=>Up, LeftDown=>Down', [
+        transition('Home => photos , blog => Home, blog=>professional, blogwrite => my, blogwrite => professional, bloglist=>Home, bloglist=>my, bloglist=>professional, professional=>photos', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),
@@ -26,7 +26,7 @@ export const slideInAnimation =
                 ], { optional: true }),
             ])
         ]),
-        transition('Home => Left, Right => Home, Right => Up, Right=>Down, Home=>LeftDown, Up=>LeftDown, Down=>LeftDown',  [
+        transition('photos => Home , Home => blog,professional=>blog, my => blogwrite, professional => blogwrite, Home=>bloglist, my=>bloglist, professional=>bloglist, photos=>professional',  [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),
@@ -43,7 +43,7 @@ export const slideInAnimation =
                 ], { optional: true }),
             ])
         ]),
-        transition('Home => Down, Up => Home, Left=>LeftDown', [
+        transition('Home => professional, my => Home, blog=>bloglist, blogwrite=>blog', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),
@@ -61,7 +61,7 @@ export const slideInAnimation =
             ]),
 
         ]),
-        transition('Home => Up, Down => Home, LeftDown=>Left', [
+        transition('professional => Home, Home => my, bloglist=>blog, blog=>blogwrite', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),

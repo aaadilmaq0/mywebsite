@@ -1,0 +1,66 @@
+<div
+  class="wrapper"
+  appMovement
+  [right]="right"
+  [left]="left"
+  [up]="left"
+  [down]="down"
+  [ngStyle]="{'background-image': (selectedImageIndex!=-1) ? bg : bgPB}"
+>
+<div class="entry">
+  <div class="wallpaper">
+    <img class="img img-responsive" src="https://thespinoff.co.nz/wp-content/uploads/2017/12/2017-lindauer-install-6.jpg?fbclid=IwAR2dcccGUiP0rYa-KCOMdAY_bOvjybrL2A9QlHF4wRslqPrboKyjhXTUpH0" alt="">
+    <p>
+      <span style="color:blue"> P </span>
+      <span style="color:red"> H </span>
+      <span style="color:yellow"> O </span>
+      <span style="color:blue"> T </span>
+      <span style="color:lightgreen"> O </span>
+      <span style="color:red"> S</span>
+    </p>
+  </div>
+</div>
+<br>
+<div class="hl"></div>
+<br>
+  <ul id="hexGrid">
+    <li class="hex" *ngFor="let image of images; let i = index">
+      <div class="hexIn">
+        <a class="hexLink" (click)="selectIndex(i)">
+          <img [src]="image.path" alt="" />
+          <h1></h1>
+          <p></p>
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>
+<div
+  class="selectedImageViewer"
+  *ngIf="selectedImageIndex != -1"
+  (click)="selectedImageIndex = -1"
+>
+  <i class="material-icons clear-icon">
+    clear
+  </i>
+</div>
+<div
+  class="imageView col-xs-12 col-md-9 col-lg-6"
+  *ngIf="selectedImageIndex != -1"
+>
+  <img class="img-responsive" [src]="images[selectedImageIndex].path" alt="" />
+  <i
+    class="material-icons right-icon"
+    *ngIf="selectedImageIndex<images.length-1"
+    (click)="selectIndex(selectedImageIndex + 1)"
+  >
+    chevron_right
+  </i>
+  <i
+    class="material-icons left-icon"
+    *ngIf="selectedImageIndex > 0"
+    (click)="selectIndex(selectedImageIndex - 1)"
+  >
+    chevron_left
+  </i>
+</div>

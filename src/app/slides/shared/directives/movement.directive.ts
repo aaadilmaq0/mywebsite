@@ -23,10 +23,10 @@ export class MovementDirective implements OnInit {
   }
 
   ngOnInit() {
-    this.qright = this.activatedRoute.snapshot.data['lastSlide']['qright'];
-    this.qdown = this.activatedRoute.snapshot.data['lastSlide']['qdown'];
-    this.qup = this.activatedRoute.snapshot.data['lastSlide']['qup'];
-    this.qleft = this.activatedRoute.snapshot.data['lastSlide']['qleft'];
+    // this.qright = this.activatedRoute.snapshot.data['lastSlide']['qright'];
+    // this.qdown = this.activatedRoute.snapshot.data['lastSlide']['qdown'];
+    // this.qup = this.activatedRoute.snapshot.data['lastSlide']['qup'];
+    // this.qleft = this.activatedRoute.snapshot.data['lastSlide']['qleft'];
   }
 
   @HostListener('window:keyup', ['$event']) onKeyPress(event: Event) {

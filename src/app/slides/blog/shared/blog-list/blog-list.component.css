@@ -1,15 +1,88 @@
-.wrapper {
-  position: relative;
-  height: calc(100vh - 120px);
-  width: 95%;
-  margin: auto;
-  background-color: black;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  z-index: 1;
-  margin-top: 8px;
+.wrapper{
+  background-color: #333;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.row > div{
-    margin-bottom: 8px;
+.bloglist{
+  border-bottom: 2px dashed wheat;
+}
+.blogInitials{
+  height: 100%;
+  width: 100vw;
+  overflow-y: scroll;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.blogcontent{
+  margin-top: 5%;
+  padding: 14px;
+  height: calc(100vh - 325px);
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 50px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.selectedBlogName{
+  text-align: left;
+  color: whitesmoke;
+  font-size: 15px;
+  padding-top: 10px;
+}
+.selectedBlogTitle{
+  text-align: right;
+  color: whitesmoke;
+  padding-top: 5px;
+  font-size: 20px;
+}
+div.scrollmenu {
+  height: 185px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777 !important;
+}
+
+@media (min-width:320px)  {
+  .blogcontent{
+    font-size: 25px;
+  }
+}
+@media (min-width:481px)  {
+  .blogcontent{
+    font-size: 25px;
+  }
+}
+@media (min-width:641px)  {
+  .blogcontent{
+    font-size: 35px;
+  }
+}
+@media (min-width:961px)  {
+  .blogcontent{
+    font-size: 40px;
+  }
+}
+@media (min-width:1025px) {
+  .blogcontent{
+    font-size: 45px;
+  }
+}
+@media (min-width:1281px) {
+  .blogcontent{
+    font-size: 50px;
+  }
 }

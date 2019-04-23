@@ -1,0 +1,167 @@
+.wrapper {
+    z-index: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+    background-size: cover;
+    background-position: center;
+}
+.bar{
+    position: relative;
+    height: 40px;
+    background-color: #282828;
+    padding-top: 2.5px;
+    padding-bottom: 3.5px;
+    align-items: center;
+    text-align: center;
+    line-height: 35px;
+}
+
+.logo{
+    height: 100%;
+}
+.logo > img{
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    float: left;
+}
+
+em{
+    font-family: "ZCOOL QingKe HuangYou", cursive;
+    font-size: 35px;
+    color: white;
+    font-style: normal;
+}
+.content{
+    height: calc(100vh - 40px);
+    width: 100vw;
+}
+.row{
+    height: 100%;
+    width: 100vw;
+}
+.video{
+    position: relative;
+    background-color: black;
+}
+
+.video-container{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding-bottom: 56.25%;
+    height: 0;
+    width: 100%;
+    overflow: hidden
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+.videolist{
+    position: relative;
+    background-color: rgb(48, 46, 46);
+}
+
+.item{
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 140px;
+    background-color: transparent;
+}
+
+.item:hover{
+    border: 2px dashed wheat !important;
+}
+
+.item > img{
+    margin-top: 3px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 110px;
+    width: 196px;
+}
+.item > p{
+    line-height: 20px;
+    font-size: 15px;
+    color : white;
+    text-align: center;
+}
+.item > hr {
+    margin-top: -10px;
+}
+@media (min-width:320px)  {
+    .video{
+        height: 50%;
+    }
+    .videolist{
+        height: calc(100vh - 50% - 40px) ;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}
+@media (min-width:481px)  {
+    .video{
+        height: 50%;
+    }
+    .videolist{
+        height: calc(100vh - 50% - 40px) ;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}
+@media (min-width:641px)  {
+    .video{
+        height: 50%;
+    }
+    .videolist{
+        height: calc(100vh - 50% - 40px) ;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+  
+}
+@media (min-width:961px)  {
+    .video{
+        height: 100%;
+    }
+    .videolist{
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}
+@media (min-width:1025px) {
+    .video{
+        height: 100%;
+    }
+    .videolist{
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}
+@media (min-width:1281px) {
+  .video{
+      height: 100%;
+  }
+  .videolist{
+      height: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+  }
+}

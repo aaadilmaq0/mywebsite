@@ -1,0 +1,81 @@
+<div class="wrapper" appMovement [right]="right" [left]="left" [up]="up" [down]="down">
+  <div class="form-wrapper">
+    <p class="form-user-name">
+      <i><strong>{{ formUserName }}</strong></i>
+    </p>
+      <mat-card>
+          <form
+            [formGroup]="blogForm"
+            class="example-container"
+            (ngSubmit)="blogForm.valid && onBlogSubmit()"
+          >
+          <mat-slide-toggle
+              color="warn"
+              [checked]="slideChecked"
+              [disabled]="slideDisable"
+              (change)="onSlideToggled($event)"
+              place
+            >
+            <em #slideLabel> Anonymous </em>
+            </mat-slide-toggle>
+            <br>
+            <mat-form-field>
+              <input
+                id="name"
+                type="text"
+                matInput
+                formControlName="name"
+                placeholder="name"
+                (change)="formUserNameChange($event)"
+                maxlength="30"
+              />
+            </mat-form-field>
+      
+            <br />
+            <mat-form-field>
+              <input
+                id="email"
+                type="text"
+                matInput
+                formControlName="email"
+                placeholder="email"
+              />
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+              <input
+                id="title"
+                type="text"
+                matInput
+                formControlName="title"
+                placeholder="title"
+                maxlength="30"
+              />
+            </mat-form-field>
+            <br>
+            <br />
+            <mat-form-field>
+              <textarea
+                matInput
+                id="content"
+                formControlName="content"
+                placeholder="your blog"
+                rows="8"
+              >
+              </textarea>
+            </mat-form-field>
+            <br />
+            <button
+              mat-raised-button
+              color="accent"
+              type="submit"
+              [disabled]="!blogForm.valid"
+            >
+              Post
+            </button>
+            <button mat-raised-button color="warn" type="reset" (click)="onFormReset()">Reset</button>
+          </form>
+        </mat-card>
+  </div>
+</div>
+<app-social></app-social> 

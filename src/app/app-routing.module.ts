@@ -2,18 +2,20 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./slides/home/home.component";
 import { ProfessionalComponent } from "./slides/professional/professional.component";
-import { HappyComponent } from "./slides/blog/happy/happy.component";
-import { SadComponent } from "./slides/blog/sad/sad.component";
-import { NormalComponent } from "./slides/blog/normal/normal.component";
+import { BlogsComponent } from "./slides/blog/blogs/blogs.component";
 import { PathNotFoundComponent } from "./path-not-found/path-not-found.component";
 import { PathResolverService } from "./slides/shared/services/path-resolver.service";
 import { BlogTemplateComponent } from "./slides/blog/shared/blog-template/blog-template.component";
 import { BlogListComponent } from "./slides/blog/shared/blog-list/blog-list.component";
+import { BlogWriteComponent } from "./slides/blog/shared/blog-write/blog-write.component";
+import { PhotosComponent } from "./slides/photos/photos.component";
+import { PicsComponent } from './slides/photos/pics/pics.component';
+import { VidsComponent } from './slides/photos/vids/vids.component';
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "blog/blogtemplate",
+    redirectTo: "home",
     pathMatch: "full"
   },
   {
@@ -22,9 +24,9 @@ const routes: Routes = [
     pathMatch: "full",
     data: {
       animation: "Home",
-      right: "blog/happy",
-      left: "blog/sad",
-      up: "blog/normal",
+      up: "",
+      right: "photos",
+      left: "blog",
       down: "professional"
     },
     resolve: { lastSlide: PathResolverService }
@@ -32,66 +34,88 @@ const routes: Routes = [
   {
     path: "professional",
     component: ProfessionalComponent,
-    pathMatch: "full",
     data: {
-      animation: "Down",
-      right: "blog/happy",
-      left: "blog/sad",
+      animation: "professional",
+      right: "",
+      left: "",
       up: "home",
       down: ""
     },
     resolve: { lastSlide: PathResolverService }
   },
   {
-    path: "blog/happy",
-    component: HappyComponent,
+    path: "photos",
+    component: PhotosComponent,
     pathMatch: "full",
     data: {
-      animation: "Right",
+      animation: "photos",
       right: "",
       left: "home",
+      up: "photos/vids",
+      down: "photos/pics"
+    },
+    resolve: { lastSlide: PathResolverService }
+  },
+  {
+    path: "photos/pics",
+    component: PicsComponent,
+    pathMatch: "full",
+    data:{
+      animation: "pics",
+      right:"",
+      left: "",
+      up: "photos",
+      down: ""
+    }
+  },
+  {
+    path: "photos/vids",
+    component: VidsComponent,
+    pathMatch: "full",
+    data:{
+      animation: "vids",
+      right:"",
+      left: "",
       up: "",
+      down: "photos"
+    }
+  },
+  {
+    path: "blog",
+    component: BlogsComponent,
+    pathMatch: "full",
+    data: {
+      animation: "blog",
+      right: "home",
+      left: "",
+      up: "blog/write",
+      down: "blog/list"
+    },
+    resolve: { lastSlide: PathResolverService }
+  },
+  {
+    path: "blog/list",
+    component: BlogListComponent,
+    pathMatch: "full",
+    data: {
+      animation: "bloglist",
+      right: "",
+      left: "",
+      up: "blog",
       down: ""
     },
     resolve: { lastSlide: PathResolverService }
   },
   {
-    path: "blog/sad",
-    component: SadComponent,
+    path: "blog/write",
+    component: BlogWriteComponent,
     pathMatch: "full",
     data: {
-      animation: "Left",
-      right: "home",
+      animation: "blogwrite",
+      right: "",
       left: "",
       up: "",
-      down: "blog/sad/list"
-    },
-    resolve: { lastSlide: PathResolverService },
-  },
-  {
-    path: "blog/sad/list",
-    component: BlogListComponent,
-    pathMatch: "full",
-    data: {
-      animation: "LeftDown",
-      parent: "sad",
-      right: "home",
-      left: "",
-      up: "blog/sad",
-      down: ""
-    },
-    resolve: { lastSlide: PathResolverService },
-  },
-  {
-    path: "blog/normal",
-    component: NormalComponent,
-    pathMatch: "full",
-    data: {
-      animation: "Up",
-      right: "blog/happy",
-      left: "blog/sad",
-      up: "",
-      down: "home"
+      down: "blog"
     },
     resolve: { lastSlide: PathResolverService }
   },
@@ -106,3 +130,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+``;

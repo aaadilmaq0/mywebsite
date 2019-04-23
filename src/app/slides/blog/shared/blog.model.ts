@@ -1,8 +1,12 @@
+import { DatePipe } from '@angular/common';
+
 export interface Blog{
-    _id: string;
+    _id?: string;
     name: string;
+    email?: string;
     title: string;
-    about: string;
+    about?: string;
     content: string;
-    dpPath: string;
+    dpPath?: string;
+    dateTime: Date;
 }

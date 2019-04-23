@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  height: calc(100vh - 120px);
+  height: calc(100vh);
   width: 100vw;
   background-color: black;
   overflow-y: scroll;
@@ -24,6 +24,7 @@
   width: 95%;
   /* background-color: red; */
   height: auto;
+  margin-bottom: 120px;
 }
 
 p {

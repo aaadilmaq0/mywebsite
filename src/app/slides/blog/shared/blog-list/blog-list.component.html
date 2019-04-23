@@ -1,15 +1,38 @@
 <div
+  class="wrapper"
   appMovement
   right="{{ right }}"
   left="{{ left }}"
   up="{{ up }}"
   down="{{ down }}"
 >
-</div>
-<div class="wrapper">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let blog of blogs">
-      <app-blog-template [blog]=blog></app-blog-template>
+  <div class="container-fluid">
+    <div class="row bloglist">
+      <div class="col scrollmenu">
+        <a
+          *ngFor="let blog of blogs; let i = index"
+          (click)="loadSelectedBlog(i)"
+          [ngStyle]="{'background-color': (selectedBlogIndex==i)?'#777':'transparent'}"
+        >
+          <app-blog-template [blog]="blog"></app-blog-template>
+        </a>
+      </div>
+    </div>
+    <div class="row blogInitials">
+      <div class="col-xs-6 selectedBlogName" *ngIf="selectedBlog">
+        <p>by {{ selectedBlog.name }}</p>
+      </div>
+      <div class="col-xs-6 selectedBlogTitle" *ngIf="selectedBlog">
+        <p>
+          <strong>{{ selectedBlog.title }}</strong>
+        </p>
+      </div>
+    </div>
+    <div class="row blogcontent">
+      <p *ngIf="selectedBlog">
+        {{ selectedBlog.content }}
+      </p>
     </div>
   </div>
 </div>
+<app-social></app-social>

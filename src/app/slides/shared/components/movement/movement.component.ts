@@ -39,10 +39,10 @@ export class MovementComponent implements OnInit, AfterViewChecked{
     
     ngAfterViewChecked(){
       try{
-        this.qright = this.routerData.state.root.firstChild.data['lastSlide']['qright'];
-        this.qleft = this.routerData.state.root.firstChild.data['lastSlide']['qleft'];
-        this.qup = this.routerData.state.root.firstChild.data['lastSlide']['qup'];
-        this.qdown = this.routerData.state.root.firstChild.data['lastSlide']['qdown'];
+        // this.qright = this.routerData.state.root.firstChild.data['lastSlide']['qright'];
+        // this.qleft = this.routerData.state.root.firstChild.data['lastSlide']['qleft'];
+        // this.qup = this.routerData.state.root.firstChild.data['lastSlide']['qup'];
+        // this.qdown = this.routerData.state.root.firstChild.data['lastSlide']['qdown'];
       }catch(e){
 
       }

@@ -1,0 +1,99 @@
+.wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../../../assets/images/bgs/sad.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+.container{
+  height: 100%;
+}
+.row{
+  height: 50%;
+  position: relative;
+}
+.row > .col-xs-12{
+  
+}
+.first{
+  position: absolute;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.second{
+  position: absolute;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+button{
+  opacity: .7;
+}
+@media (min-width:320px)  {
+  button{
+    font-size: 70px;
+  }
+  .first{
+    top: 30%;
+  }
+  .second{
+    bottom: 30%;
+  }
+}
+@media (min-width:481px)  {
+  button{
+    font-size: 75px;
+  }
+  .first{
+    top: 25%;
+  }
+  .second{
+    bottom: 25%;
+  }
+}
+@media (min-width:641px)  {
+  button{
+    font-size: 80px;
+  }
+  .first{
+    top: 20%;
+  }
+  .second{
+    bottom: 20%;
+  }
+}
+@media (min-width:961px)  {
+  button{
+    font-size: 85px;
+  }
+  .first{
+    top: 17.5%;
+  }
+  .second{
+    bottom: 17.5%;
+  }
+}
+@media (min-width:1025px) {
+  button{
+    font-size: 90px;
+  }
+  .first{
+    top: 15%;
+  }
+  .second{
+    bottom: 15%;
+  }
+}
+@media (min-width:1281px) {
+  button{
+    font-size: 95px;
+  }
+  .first{
+    top: 10%;
+  }
+  .second{
+    bottom: 10%;
+  }
+}

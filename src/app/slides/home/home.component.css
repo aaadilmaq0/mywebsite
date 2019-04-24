@@ -1,42 +1,145 @@
 .wrapper {
-  position: relative;
-  height: calc(100vh);
+  height: 100vh;
   width: 100vw;
   background-color: black;
   overflow-y: scroll;
   overflow-x: hidden;
-  z-index: 1;
+  z-index: 0;
 }
-.content {
-  position: absolute;
-  height: 100%;
+.wrapper > div{
   width: 100%;
-  text-align: center;
-}
-.xyz {
   position: absolute;
-  top: 15%;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.wrapper > .welcome > p{
+  text-align: center;
+  font-family: 'Courgette', cursive;
+  color: whitesmoke;
+}
+
+.left{
+  position: absolute;
+  top: 50%;
+  left: 1%;
   transform: translateY(-50%);
+  cursor: pointer;
+}
+.left_description{
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+  font-size: 40px; 
+  /* //media */
+  font-family: 'Righteous', cursive;
+  cursor: pointer;
+  color: rgb(173, 179, 188);
+  margin-left: 20px;
+}
+.left_description:hover{
+  color: rgb(182, 162, 239);
+}
+
+.right{
+  position: absolute;
+  top: 50%;
+  right: 1%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.right_description{
+  margin-right: 20px;
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
+  /* //media */
+  font-family: 'Righteous', cursive;
+  cursor: pointer;
+  color: rgb(173, 179, 188);
+}
+.right_description:hover{
+  color: rgb(182, 162, 239);
+}
+
+.down{
+  position: absolute;
+  bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
-  /* margin-left: auto;
-  margin-right: auto; */
-  width: 95%;
-  /* background-color: red; */
-  height: auto;
-  margin-bottom: 120px;
+  cursor: pointer;
 }
 
-p {
-  color: green;
-  text-align: center;
-  font-size: 25px;
-  font-family: "ZCOOL QingKe HuangYou", cursive;
+.down_description{
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 23%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px; 
+  /* //media */
+  font-family: 'Righteous', cursive;
+  cursor: pointer;
+  color: rgb(173, 179, 188);
 }
-/* 'https://media.giphy.com/media/5xtDarqCp0eomZaFJW8/giphy.gif' */
+.down_description:hover{
+  color: rgb(182, 162, 239);
+}
 
-@media (min-width: 320px) and (max-width: 480px) {
-  .xyz{
-    top : 4%;
+.material-icons {
+  font-size: 50px;
+  color: white;
+}
+
+@media (min-width:320px)  {
+  .right_description , .left_description, .down_description{
+    font-size: 20px;
+  }
+  .wrapper > .welcome > p{
+    font-size: 55px;
+  }
+}
+@media (min-width:481px)  {
+  .right_description , .left_description, .down_description{
+    font-size: 24px;
+  }
+  .wrapper > .welcome > p{
+    font-size: 60px;
+  }
+}
+@media (min-width:641px)  {
+  .right_description , .left_description, .down_description{
+    font-size: 27px;
+  }
+  .wrapper > .welcome > p{
+    font-size: 70px;
+  }
+}
+@media (min-width:961px)  {
+  .right_description , .left_description, .down_description{
+    font-size: 30px;
+  }
+  .wrapper > .welcome > p{
+    font-size: 80px;
+  }
+  
+}
+@media (min-width:1025px) {
+  .right_description , .left_description, .down_description{
+    font-size: 40px;
+  }
+  .wrapper > .welcome > p{
+    font-size: 100px;
+  }
+}
+@media (min-width:1281px) {
+  .right_description , .left_description, .down_description{
+    font-size: 40px;
+  }
+  .wrapper > .welcome > p{
+    font-size: 120px;
   }
 }

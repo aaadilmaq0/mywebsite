@@ -1,54 +1,26 @@
 <div
+  class="wrapper"
   appMovement
   right="{{ right }}"
   left="{{ left }}"
   up="{{ up }}"
   down="{{ down }}"
-></div>
-<div class="wrapper">
-  <div class="container content">
-    <div class="xyz">
-      <div class="row">
-        <div class="col-xs-12">
-          <p>
-            <strong style="font-size : 50px">Hey there! I am Adil.</strong>
-            <br />
-            <!-- I am a fun loving guy who has a passion for developing web and
-            mobile apps. Besides being a techie, I like playing piano, traveling
-            and photography. I am a non-stop learner. But this website is for
-            everyone and not just me. It's also your chance to start blogging or
-            sharing your feelings. -->
-            A fun loving guy who has a passion for developing web and
-            mobile apps. Here, you can BLOG and check out other things that I do.
-          </p>
-          <hr />
-          <p>
-            If you're a professional and want to check my work experience and
-            resume, go down.
-          </p>
-          <hr />
-          <p>
-            Speak your heart out. Go left to share something which makes you
-            sad, or if you seek help from me and others.
-          </p>
-          <hr />
-          <p>
-            Go right to share some happiness with the world or if you're one of
-            them who finds joy in others' joy.
-          </p>
-          <hr />
-          <p>
-            Go up to see my own articles, blogs, piano videos and other
-            projects.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+>
   <app-particles></app-particles>
-</div>
-<div>
-  
+  <div class="welcome">
+    <p>Bonjour, Adil here!</p>
+  </div>
+  <i class="material-icons left" (click)="routeTo('blog')">
+    keyboard_arrow_left
+  </i>
+  <em class="left_description" (click)="routeTo('blog')">BLOG/ARTICLE</em>
+  <i class="material-icons right" (click)="routeTo('photos')">
+    keyboard_arrow_right
+  </i>
+  <em class="right_description" (click)="routeTo('photos')">PHOTOS/VIDEOS</em>
+  <i class="material-icons down" (click)="routeTo('professional')">
+    keyboard_arrow_down
+  </i>
+  <em class="down_description" (click)="routeTo('professional')">RESUME/EXPERIENCE</em>
 </div>
 <app-social></app-social>
-<app-particles></app-particles>

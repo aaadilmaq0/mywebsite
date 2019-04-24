@@ -10,13 +10,9 @@ export class BlogTemplateComponent implements OnInit {
   color: string= "";
   colorContrast: string = "";
   constructor() {
-    this.color = `rgb(${Math.random()*255 | 0},${Math.random()*255 | 0},${Math.random()*255 | 0})`;
-    console.log(this.color);
-    
+    this.color = 'rgb(42,21,140)';
   }
   ngOnInit() {
-    let rgb:string[] = this.color.substring(4).split(')')[0].split(',');
-    this.colorContrast = `rgb(${255-parseFloat(rgb[0])},${255-parseFloat(rgb[1])},${255-parseFloat(rgb[2])})`;
-    console.log(this.colorContrast);
+    this.colorContrast = `rgb(213, 234, 115)`;
   }
 }

@@ -25,11 +25,11 @@ export class PhotosComponent implements OnInit {
   }
 
   showPhotos(){
-    this.router.navigate(['blog/write']);
+    this.router.navigate(['photos/pics']);
   }
 
   showVideos(){
-    this.router.navigate(['blog/list']);
+    this.router.navigate(['photos/vids']);
   }
 
 }

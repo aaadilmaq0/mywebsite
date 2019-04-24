@@ -43,7 +43,7 @@ export const slideInAnimation =
                 ], { optional: true }),
             ])
         ]),
-        transition('Home => professional, my => Home, blog=>bloglist, blogwrite=>blog', [
+        transition('Home => professional, my => Home, blog=>bloglist, blogwrite=>blog, photos => pics , vids => photos', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),
@@ -61,7 +61,7 @@ export const slideInAnimation =
             ]),
 
         ]),
-        transition('professional => Home, Home => my, bloglist=>blog, blog=>blogwrite', [
+        transition('professional => Home,bloglist=>blog, blog=>blogwrite, pics => photos, photos =>vids', [
             query(':enter, :leave',
                 style({ position: 'fixed', width: '100%' }),
                 { optional: true }),

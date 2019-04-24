@@ -1,10 +1,10 @@
 <div
   class="wrapper"
   appMovement
-  [right]="right"
-  [left]="left"
-  [up]="left"
-  [down]="down"
+  right="{{ right }}"
+  left="{{ left }}"
+  up="{{ up }}"
+  down="{{ down }}"
   [ngStyle]="{'background-image': (selectedImageIndex!=-1) ? bg : bgPB}"
 >
 <div class="entry">

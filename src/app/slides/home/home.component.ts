@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { Subscription } from 'rxjs';
 
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   left:string = "";
   up:string = "";
   down:string = "";
-  constructor( private activatedRoute: ActivatedRoute) { }
+  constructor(private router:Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.right = this.activatedRoute.snapshot.data['right'];
@@ -23,4 +23,7 @@ export class HomeComponent implements OnInit {
     this.down = this.activatedRoute.snapshot.data['down'];
   }
 
+  routeTo(url:string){
+    this.router.navigate([url]);
+  }
 }

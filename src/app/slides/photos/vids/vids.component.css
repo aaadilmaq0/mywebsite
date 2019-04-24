@@ -44,6 +44,7 @@ em{
 .video{
     position: relative;
     background-color: black;
+    border: 1px solid rgb(61, 58, 58);
 }
 
 .video-container{
@@ -67,6 +68,7 @@ height: 100%;
 }
 
 .videolist{
+    border: 1px solid rgb(61, 58, 58);
     position: relative;
     background-color: rgb(48, 46, 46);
 }

@@ -16,7 +16,7 @@
 
 .wrapper > .welcome > p{
   text-align: center;
-  font-family: 'Courgette', cursive;
+  font-family: 'Abel', sans-serif;
   color: whitesmoke;
 }
 
@@ -99,7 +99,7 @@
     font-size: 20px;
   }
   .wrapper > .welcome > p{
-    font-size: 55px;
+    font-size: 75px;
   }
 }
 @media (min-width:481px)  {
@@ -107,7 +107,7 @@
     font-size: 24px;
   }
   .wrapper > .welcome > p{
-    font-size: 60px;
+    font-size: 80px;
   }
 }
 @media (min-width:641px)  {
@@ -115,7 +115,7 @@
     font-size: 27px;
   }
   .wrapper > .welcome > p{
-    font-size: 70px;
+    font-size: 90px;
   }
 }
 @media (min-width:961px)  {
@@ -123,7 +123,7 @@
     font-size: 30px;
   }
   .wrapper > .welcome > p{
-    font-size: 80px;
+    font-size: 100px;
   }
   
 }
@@ -132,7 +132,7 @@
     font-size: 40px;
   }
   .wrapper > .welcome > p{
-    font-size: 100px;
+    font-size: 120px;
   }
 }
 @media (min-width:1281px) {
@@ -140,6 +140,6 @@
     font-size: 40px;
   }
   .wrapper > .welcome > p{
-    font-size: 120px;
+    font-size: 140px;
   }
 }

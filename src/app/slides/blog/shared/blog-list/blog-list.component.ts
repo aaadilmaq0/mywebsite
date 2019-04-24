@@ -37,42 +37,6 @@ export class BlogListComponent implements OnInit, OnDestroy {
         this.blogs = blogs;
       }
     );
-    this.blogs.push({
-      _id : '1',
-      title : 'asdadsasdaasdadssdas',
-      about : 'asadasdaasdasd',
-      name : 'asdasdasdasdasdsa',
-      dateTime : new Date(),
-      content : 'asdjisdjiajdsiasjdiasjdi ajsdi jaisd jiasjd iasjd iajdi jaid jaisd jiajs asd iasdj iasdj iajsdi asdj aisjdi ajids jaijsad ijadsijaisj iasdji ajs iji jasid jasdaj asidjaisdj isajd isajd ijqaid jsi jiasdj asdij sijdj adsjias ijd',
-
-    });
-    this.blogs.push({
-      _id : '1',
-      title : 'asdadsasdaasdadssdas',
-      about : 'asadasdaasdasd',
-      name : 'asdasdasdasdasdsa',
-      dateTime : new Date(),
-      content : 'asdjisdjiajdsiasjdiasjdi ajsdi jaisd jiasjd iasjd iajdi jaid jaisd jiajs asd iasdj iasdj iajsdi asdj aisjdi ajids jaijsad ijadsijaisj iasdji ajs iji jasid jasdaj asidjaisdj isajd isajd ijqaid jsi jiasdj asdij sijdj adsjias ijd',
-
-    });
-    this.blogs.push({
-      _id : '1',
-      title : 'asdadsasdaasdadssdas',
-      about : 'asadasdaasdasd',
-      name : 'asdasdasdasdasdsa',
-      dateTime : new Date(),
-      content : 'asdjisdjiajdsiasjdiasjdi ajsdi jaisd jiasjd iasjd iajdi jaid jaisd jiajs asd iasdj iasdj iajsdi asdj aisjdi ajids jaijsad ijadsijaisj iasdji ajs iji jasid jasdaj asidjaisdj isajd isajd ijqaid jsi jiasdj asdij sijdj adsjias ijd',
-
-    });
-    this.blogs.push({
-      _id : '1',
-      title : 'asdadsasdaasdadssdas',
-      about : 'asadasdaasdasd',
-      name : 'asdasdasdasdasdsa',
-      dateTime : new Date(),
-      content : 'asdjisdjiajdsiasjdiasjdi ajsdi jaisd jiasjd iasjd iajdi jaid jaisd jiajs asd iasdj iasdj iajsdi asdj aisjdi ajids jaijsad ijadsijaisj iasdji ajs iji jasid jasdaj asidjaisdj isajd isajd ijqaid jsi jiasdj asdij sijdj adsjias ijd',
-
-    });
     var check = setInterval(()=>{
       if(this.blogs[0]){
         this.loadSelectedBlog(0);

@@ -1,6 +1,7 @@
 <mat-card [ngStyle]="{'background-color': color, 'color':colorContrast}" class="example-card">
   <mat-card-header>
-    <img mat-card-avatar [src]="blog.dpPath" alt="">
+    <img *ngIf="blog.name != 'Adil'" mat-card-avatar [src]="blog.dpPath" alt="">
+    <img *ngIf="blog.name == 'Adil'" mat-card-avatar src="../../../../../assets/images/me.png" alt="">
     <mat-card-title> {{ blog.title }}</mat-card-title>
     <mat-card-subtitle [ngStyle]="{'color': colorContrast}"> {{ blog.name }}</mat-card-subtitle>
   </mat-card-header>

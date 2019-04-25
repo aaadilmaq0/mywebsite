@@ -13,7 +13,7 @@ export class MediaService {
 
   getPhotos() {
     this.images = [];
-    this.http.get("http://localhost:3000/getImages").subscribe(response => {
+    this.http.get("http://theadilsite.us-east-2.elasticbeanstalk.com/getImages").subscribe(response => {
       response["resources"].forEach(resource => {
         this.images.unshift({ path : resource["url"]});
       });

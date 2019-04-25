@@ -12,7 +12,7 @@
     line-height: 40px;
     z-index: 3;
     width: 100vw;
-    border: 2px dashed pink;
+    border: 2px dashed rgb(224, 85, 85);
 }
 .content{
     background-color: black;
@@ -29,12 +29,12 @@
 
 @media (min-width:320px)  {
     .link{
-        font-size: 15px;
+        font-size: 11px;
     }
 }
 @media (min-width:481px)  {
     .link{
-        font-size: 17px;
+        font-size: 15px;
     }
 }
 @media (min-width:641px)  {

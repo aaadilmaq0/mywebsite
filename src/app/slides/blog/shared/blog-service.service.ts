@@ -17,7 +17,7 @@ export class BlogServiceService {
 
   pushBlog(blog: Blog) {
     this.http
-      .post("http://localhost:3000/pushBlog", {
+      .post("http://theadilsite.us-east-2.elasticbeanstalk.com/pushBlog", {
         blog: blog
       })
       .subscribe(response => {
@@ -27,7 +27,7 @@ export class BlogServiceService {
 
   getBlogs(): Blog[] {
     this.blogs = [];
-    this.http.get("http://localhost:3000/getBlogs").subscribe(response => {
+    this.http.get("http://theadilsite.us-east-2.elasticbeanstalk.com/getBlogs").subscribe(response => {
       for (var i = response["length"] - 1; i >= 0; i--) {
         this.blogs.push({
           _id: response[i]["_id"],

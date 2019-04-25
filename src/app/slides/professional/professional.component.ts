@@ -75,7 +75,7 @@ export class ProfessionalComponent implements OnInit {
             ]
           },
           {
-            label: "Interests/Hobbies",
+            label: "Interests",
             color: "#ffcccc",
             value: "25",
             category: [
@@ -211,7 +211,7 @@ export class ProfessionalComponent implements OnInit {
             ]
           },
           {
-            label: "UnderGraduation",
+            label: "UG",
             tooltext: "B.Tech in Information Technology from MIT, Manipal. CGPA:6.28",
             color: "#ffcccc",
             value: "40",
@@ -235,8 +235,8 @@ export class ProfessionalComponent implements OnInit {
                 value: "10"
               },
               {
-                label: "Information Technology",
-                tooltext: "My stream was IT",
+                label: "IT",
+                tooltext: "My stream was Information Technology",
                 color: "#ffcccc",
                 value: "10"
               }
@@ -283,7 +283,7 @@ export class ProfessionalComponent implements OnInit {
                 value: ".5"
               },
               {
-                label: "Athens,Greece",
+                label: "Athens",
                 tooltext: "I used to work in Nikea, Athens, Greece",
                 color: "#ffff00",
                 value: ".5"
@@ -466,7 +466,7 @@ export class ProfessionalComponent implements OnInit {
             ]
           },
           {
-            label: "App Development",
+            label: "Apps",
             tooltext: "These are the applications I can develop",
             color: "#ffcccc",
             value: "25 ",
@@ -492,7 +492,7 @@ export class ProfessionalComponent implements OnInit {
             ]
           },
           {
-            label: "Database Systems",
+            label: "DBs",
             tooltext: "I am familiar with these database systems",
             color: "#ff0000",
             value: "15",
@@ -512,7 +512,7 @@ export class ProfessionalComponent implements OnInit {
             ]
           },
           {
-            label: "Operating Systems",
+            label: "OS",
             tooltext: "I am familiar with these operating systems",
             color: "#3d5aff",
             value: "15",
@@ -565,7 +565,6 @@ export class ProfessionalComponent implements OnInit {
     this.up = this.activatedRoute.snapshot.data['up'];
     this.down = this.activatedRoute.snapshot.data['down'];
 
-    this.selectedLink="personal";
+    this.selectedLink="experience";
   }
-
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-vids',
   templateUrl: './vids.component.html',
@@ -9,7 +10,12 @@ export class VidsComponent implements OnInit {
 
   selected = -1;
 
-  private vids:any [] = [
+  right:string = "";
+  left:string = "";
+  up:string = "";
+  down:string = "";
+
+  public vids:any [] = [
     {
       url : "https://www.youtube.com/embed/JSlzW2oZcpU",
       title : "Game of Thrones Theme(Simple)",
@@ -27,10 +33,14 @@ export class VidsComponent implements OnInit {
     },
   ];
 
-  constructor(public sanitizer:DomSanitizer) { }
+  constructor(public sanitizer:DomSanitizer, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
     this.selected = 0;
+    this.right = this.activatedRoute.snapshot.data['right'];
+    this.left = this.activatedRoute.snapshot.data['left'];
+    this.up = this.activatedRoute.snapshot.data['up'];
+    this.down = this.activatedRoute.snapshot.data['down'];
   }
 
 }

@@ -1,11 +1,13 @@
 .wrapper {
   z-index: 0;
-  height: 100vh;
   width: 100vw;
-  overflow: scroll;
+  overflow: scroll !important;
   /* background-color: rgb(37, 32, 48); */
   background-size: cover;
   background-position: center;
+  height: 100vh;
+  overflow-y: scroll !important;
+  overflow-x: hidden;
   padding: 10px;
 }
 * {
@@ -51,7 +53,6 @@
   flex-wrap: wrap;
   width: 100%;
   margin: 0 auto;
-  overflow: hidden;
   font-family: "Raleway", sans-serif;
   font-size: 15px;
   list-style-type: none;

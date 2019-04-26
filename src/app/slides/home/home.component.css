@@ -96,7 +96,7 @@
 
 @media (min-width:320px)  {
   .right_description , .left_description, .down_description{
-    font-size: 15px;
+    font-size: 17px;
   }
   .wrapper > .welcome > p{
     font-size: 75px;
@@ -104,7 +104,7 @@
 }
 @media (min-width:481px)  {
   .right_description , .left_description, .down_description{
-    font-size: 20px;
+    font-size: 22px;
   }
   .wrapper > .welcome > p{
     font-size: 80px;
@@ -112,7 +112,7 @@
 }
 @media (min-width:641px)  {
   .right_description , .left_description, .down_description{
-    font-size: 24px;
+    font-size: 26px;
   }
   .wrapper > .welcome > p{
     font-size: 90px;

@@ -1,7 +1,6 @@
 .wrapper {
   z-index: 0;
   width: 100vw;
-  overflow: scroll !important;
   /* background-color: rgb(37, 32, 48); */
   background-size: cover;
   background-position: center;
